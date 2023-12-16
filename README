@@ -1,0 +1,35 @@
+Mir Hassan 
+101237024
+Abdul Raheem 
+101236176
+
+-the purpose of this project is to build a full communication simulation. there will be connected rooms, with 4 hunters who are 
+are going to be collecting evidencen from the rooms. A ghost, wandering around and leaving evidence. When a hunter
+is in a room with a ghost, their fear level goes from 0 to 100, and when they reach 100, they’re out of there. A ghost can be a POLTERGEIST, BANSHEE,BULLIES, or PHANTOM. In all cases a ghost can only leave behind 3 different types of evidence from a total of 4. Hunters will
+be communicating the ghostly evidence that they will be finding. the program will be multi-threaded where each ghost and
+the hunter will get a chance to perform a random action.
+
+-FILE NAMES
+-file name: main.c
+-file name: ghost.c
+-file name: room.c
+-file name: building.c
+-file name: evidence.c
+-file name: hunter.c
+-file name: defs.h 
+-file name: README.md
+
+type "make" to compile the files
+(also to compile the files all together they should be put in a folder as shown in the compiling example that finalproject is the folder)
+
+-run it by valgrind --leak-check=full ./finalproject
+(this will help to ensure that all the allocations were freed and there were no unnecessary leaks of memory)
+
+NOTE!!!
+
+ - We were not able to cleanup the ghostDropped evidence list because of some free () next error, but we know 1 of the allocations is from allocating the ghostDropped list
+  
+ - We were also not able to clean up the 13 rooms that were created in populateRooms function because of double free error. We know 13 of the unfreed allocations are from that function.
+
+ - ocasionally there are 2 or 3 allocations caused by the threading for some reason.
+ - MOST OF THE ALLOCATIONS WERE FREED!!!!s
